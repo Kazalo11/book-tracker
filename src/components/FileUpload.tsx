@@ -24,7 +24,10 @@ export default function FileUpload({ setIsbns }: FileUploadProps) {
     setIsbns(isbns);
   };
   return (
-    <FileUploadRoot onFileAccept={onFileAccept} accept={["image/png"]}>
+    <FileUploadRoot
+      onFileAccept={onFileAccept}
+      accept={["image/png", "image/jpeg"]}
+    >
       <FileUploadTrigger asChild>
         <Button variant="outline" size="sm">
           <HiUpload /> Upload file
