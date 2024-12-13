@@ -1,12 +1,17 @@
-import { Button } from "@chakra-ui/react";
+import { Button, FileUploadFileAcceptDetails } from "@chakra-ui/react";
 import { HiUpload } from "react-icons/hi";
+import { createDetector, extractISBNs } from "./Detector";
 import {
   FileUploadList,
   FileUploadRoot,
   FileUploadTrigger,
 } from "./ui/file-upload";
 
-export default function FileUpload() {
+type FileUploadProps = {
+  setIsbns: React.Dispatch<React.SetStateAction<string[]>>;
+};
+
+export default function FileUpload({ setIsbns }: FileUploadProps) {
   const onFileAccept = async (details: FileUploadFileAcceptDetails) => {
     const files: File[] = details.files;
     const detector = await createDetector();
@@ -15,9 +20,11 @@ export default function FileUpload() {
       const isbn = await extractISBNs(file, detector);
       isbns = isbns.concat(isbn);
     }
+    console.log(isbns);
+    setIsbns(isbns);
   };
   return (
-    <FileUploadRoot onFileAccept={onFileAccept}>
+    <FileUploadRoot onFileAccept={onFileAccept} accept={["image/png"]}>
       <FileUploadTrigger asChild>
         <Button variant="outline" size="sm">
           <HiUpload /> Upload file
