@@ -44,7 +44,11 @@ export default function CreatePage() {
               </div>
             );
           })}
-          {books && <Button size="md">Add Book</Button>}
+          {books && (
+            <Button size="md" colorPalette="teal" variant="solid">
+              Add Book
+            </Button>
+          )}
         </Card.Description>
       </Card.Body>
       <Card.Footer />
