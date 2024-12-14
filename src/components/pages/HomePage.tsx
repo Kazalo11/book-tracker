@@ -1,12 +1,11 @@
 import { SupabaseClient } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
-import { Database, Tables } from "../../types/supabase";
+import { Book } from "../../types/books";
+import { Database } from "../../types/supabase";
 
 type HomePageProps = {
   supabase: SupabaseClient<Database, "public", Database["public"]>;
 };
-
-type Book = Tables<"Books">;
 
 export default function HomePage({ supabase }: HomePageProps) {
   const [books, setBooks] = useState<Book[] | null>(null);

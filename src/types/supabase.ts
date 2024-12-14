@@ -39,6 +39,7 @@ export type Database = {
           author: string | null
           created_at: string
           hasRead: boolean | null
+          imageLink: string | null
           isbn: string
           isbns: string[] | null
           title: string | null
@@ -48,6 +49,7 @@ export type Database = {
           author?: string | null
           created_at?: string
           hasRead?: boolean | null
+          imageLink?: string | null
           isbn: string
           isbns?: string[] | null
           title?: string | null
@@ -57,6 +59,7 @@ export type Database = {
           author?: string | null
           created_at?: string
           hasRead?: boolean | null
+          imageLink?: string | null
           isbn?: string
           isbns?: string[] | null
           title?: string | null
