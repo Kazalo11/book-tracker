@@ -3,7 +3,7 @@ import { useState } from "react";
 import BookItem from "./BookItem";
 import FileUpload from "./FileUpload";
 
-export default function MainPage() {
+export default function CreatePage() {
   const [isbns, setIsbns] = useState<string[]>([]);
 
   return (
