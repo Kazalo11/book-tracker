@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react/box";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
 import CreatePage from "./components/pages/CreatePage";
-import LoginPage from "./components/pages/LoginPage";
+import MainPage from "./components/pages/MainPage";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/create" element={<CreatePage />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/" element={<MainPage />} />
         </Routes>
       </Router>
     </Box>
