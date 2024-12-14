@@ -14,11 +14,7 @@ export default function BookItem({ book }: BookItemProps) {
             {book.title} by {book.author}
           </Card.Title>
           <Card.Description>
-            <Image
-              rounded={"md"}
-              src={book.imageLink ?? undefined}
-              alt="Book image"
-            />
+            <Image rounded={"md"} src={book.imageLink} alt="Book image" />
           </Card.Description>
         </Card.Body>
       </Card.Root>

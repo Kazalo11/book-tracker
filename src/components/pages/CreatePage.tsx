@@ -10,17 +10,25 @@ export default function CreatePage() {
   const [isbns, setIsbns] = useState<string[]>([]);
   const [books, setBooks] = useState<Book[]>([]);
   useEffect(() => {
-    const newBooks: Book[] = isbns.map((isbn) => {
-      return mapIsbnToBook(isbn);
-    });
-    setBooks((previousBooks) => {
-      for (const book of newBooks) {
-        if (!previousBooks.includes(book)) {
-          previousBooks.push(book);
+    const getBooks = async () => {
+      const newBooks: Book[] = [];
+      isbns.forEach(async (isbn) => {
+        const book = await mapIsbnToBook(isbn);
+        if (book) {
+          newBooks.push(book);
         }
-      }
-      return previousBooks;
-    });
+      });
+
+      setBooks((previousBooks) => {
+        for (const book of newBooks) {
+          if (!previousBooks.includes(book)) {
+            previousBooks.push(book);
+          }
+        }
+        return previousBooks;
+      });
+    };
+    getBooks();
   }, [isbns]);
 
   return (
@@ -36,11 +44,7 @@ export default function CreatePage() {
               </div>
             );
           })}
-          {books && (
-            <Button size="md" colorPalette={"blue"}>
-              Add Book
-            </Button>
-          )}
+          {books && <Button size="md">Add Book</Button>}
         </Card.Description>
       </Card.Body>
       <Card.Footer />
