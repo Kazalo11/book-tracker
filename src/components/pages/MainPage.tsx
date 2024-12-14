@@ -1,9 +1,10 @@
 import { createClient, Session } from "@supabase/supabase-js";
 import { useEffect, useState } from "react";
+import { Database } from "../../types/supabase";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 
-const supabase = createClient(
+const supabase = createClient<Database>(
   import.meta.env.VITE_SUPABASE_URL,
   import.meta.env.VITE_SUPABASE_ANON_KEY
 );
@@ -28,5 +29,5 @@ export default function MainPage() {
   if (!session) {
     return <LoginPage supabase={supabase} />;
   }
-  return <HomePage />;
+  return <HomePage supabase={supabase} />;
 }
