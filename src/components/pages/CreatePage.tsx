@@ -1,7 +1,7 @@
 import { Card } from "@chakra-ui/react";
 import { useState } from "react";
-import BookItem from "./BookItem";
-import FileUpload from "./FileUpload";
+import BookItem from "../BookItem";
+import FileUpload from "../FileUpload";
 
 export default function CreatePage() {
   const [isbns, setIsbns] = useState<string[]>([]);

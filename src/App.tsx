@@ -2,7 +2,7 @@ import { Heading } from "@chakra-ui/react";
 import { Box } from "@chakra-ui/react/box";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import "./App.css";
-import CreatePage from "./components/CreatePage";
+import CreatePage from "./components/pages/CreatePage";
 
 function App() {
   return (
